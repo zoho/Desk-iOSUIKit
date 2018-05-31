@@ -40,44 +40,35 @@ extension UIFont{
         return UIFont(name: FontConstant.proximaNovaItalics, size: size)!
     }
     
-    /// Register font you need to use in this framework.
-    ///
-    /// - Parameters:
-    ///   - filenameString: filename of the font
-    ///   - bundleIdentifierString: bundleIdentifierString of the module
-    internal static func registerFontWithFilenameString(_ filenameString: String, bundleIdentifierString: String) {
-        guard let bundle = Bundle(identifier: bundleIdentifierString) else {
-            "UIFont+:  Failed to register font - bundle identifier invalid.".makeLog()
-            return
+    @discardableResult static func registerFont(bundle: Bundle, fontName: String, fontExtension: String) -> Bool {
+        guard let fontURL = bundle.url(forResource: fontName, withExtension: fontExtension) else {
+            "Couldn't find font \(fontName)".makeLog()
+            return false
         }
         
-        guard let pathForResourceString = bundle.path(forResource: filenameString, ofType: nil) else {
-            "UIFont+:  Failed to register font - path for resource not found.".makeLog()
-            return
+        guard let fontDataProvider = CGDataProvider(url: fontURL as CFURL) else {
+            "Couldn't load data from the font \(fontName)".makeLog()
+            return false
         }
         
-        guard let fontData = try? Data(contentsOf: URL(fileURLWithPath: pathForResourceString)) else {
-            "UIFont+:  Failed to register font - font data could not be loaded.".makeLog()
-            return
-        }
         
-        guard let dataProvider = CGDataProvider(data: fontData as CFData) else {
-            "UIFont+:  Failed to register font - data provider could not be loaded.".makeLog()
-            return
-        }
         #if swift(>=4)
-        guard let font = CGFont(dataProvider) else {
+        guard let font = CGFont(fontDataProvider) else {
             print("Error loading font. Could not create CGFont from CGDataProvider.")
-            return
+            return false
         }
         #else
-        let font = CGFont(dataProvider)
+        let font = CGFont(fontDataProvider)
         #endif
         
-        var errorRef: Unmanaged<CFError>? = nil
-        if (CTFontManagerRegisterGraphicsFont(font, &errorRef) == false) {
-            "UIFont+:  Failed to register font - register graphics font failed - this font may have already been registered in the main bundle.".makeLog()
+        var error: Unmanaged<CFError>?
+        let success = CTFontManagerRegisterGraphicsFont(font, &error)
+        guard success else {
+            print("Error registering font: maybe it was already registered.")
+            return false
         }
+        
+        return true
     }
     
 }

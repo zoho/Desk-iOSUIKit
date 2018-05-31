@@ -9,13 +9,23 @@
 import UIKit
 import ZohoDeskSDK
 internal class ZDUtility{
+        
     internal static func getBundle() -> Bundle? {
         var bundle: Bundle?
-        if let urlString = Bundle.main.path(forResource:"ZohoDeskUIKit", ofType: "framework", inDirectory: "Frameworks"){
-            bundle = (Bundle(url: URL(fileURLWithPath: urlString)))
+        let sdkBundle = Bundle(for: ZohoDeskUIKit.self)
+        if let bundleURL = sdkBundle.url(forResource: "ZohoDeskUIKit", withExtension: "bundle"){
+            bundle = Bundle(url: bundleURL)
         }
         return bundle
     }
+    
+//    internal static func getBundle() -> Bundle? {
+//        var bundle: Bundle?
+//        if let urlString = Bundle.main.path(forResource:"ZohoDeskUIKit", ofType: "framework", inDirectory: "Frameworks"){
+//            bundle = (Bundle(url: URL(fileURLWithPath: urlString)))
+//        }
+//        return bundle
+//    }
     
     
     internal static func getFileIcon(fileName:String) -> String{

@@ -9,7 +9,10 @@ spec.source        = { :git => 'https://github.com/zoho/Desk-iOSUIKit.git', :tag
 
 spec.ios.deployment_target  = '9.0'
 
-spec.source_files   = 'native/**/*.{swift,h,plist,ttf,otf,strings,xib}'
+spec.source_files   = 'native/**/*.{swift,h,plist}'
+spec.resource_bundles = {
+'ZohoDeskUIKit' => ['native/**/*.{strings,xib,xcassets,strings,ttf,otf}']
+}
 spec.framework      = 'UIKit'
 spec.dependency 'ZohoDeskSDK'
 

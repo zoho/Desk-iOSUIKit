@@ -18,10 +18,10 @@ import UIKit
     
     internal func registerCustomFonts(){
         
-        UIFont.registerFontWithFilenameString(FontConstant.iconFontName+".ttf", bundleIdentifierString:"com.zoho.deskSDKUIKit")
-        UIFont.registerFontWithFilenameString("ProximaNovaBold.otf", bundleIdentifierString:"com.zoho.deskSDKUIKit")
-        UIFont.registerFontWithFilenameString("ProximaNovaReg.otf", bundleIdentifierString:"com.zoho.deskSDKUIKit")
-        UIFont.registerFontWithFilenameString("ProximaNovaSbold.otf", bundleIdentifierString:"com.zoho.deskSDKUIKit")
+        UIFont.registerFont(bundle: ZDUtility.getBundle()!, fontName: FontConstant.iconFontName, fontExtension: "ttf")
+        UIFont.registerFont(bundle: ZDUtility.getBundle()!, fontName: "ProximaNovaBold", fontExtension: "otf")
+        UIFont.registerFont(bundle: ZDUtility.getBundle()!, fontName: "ProximaNovaReg", fontExtension: "otf")
+        UIFont.registerFont(bundle: ZDUtility.getBundle()!, fontName: "ProximaNovaSbold", fontExtension: "otf")
     }
     
     /// This method should call on logout. This method will delete all user data saved by ZohoDeskUIKit
