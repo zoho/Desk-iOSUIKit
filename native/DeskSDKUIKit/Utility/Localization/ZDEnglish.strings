@@ -1,0 +1,50 @@
+/* 
+  English.strings
+  ZohoDeskUIKit
+
+  Created by Rajeshkumar Lingavel on 16/05/18.
+  Copyright © 2018 rajesh-2098. All rights reserved.
+*/
+
+
+
+//Common Text
+"deskSDKUI.common.cancel"                    = "Cancel";
+"deskSDKUI.common.from"                      = "From:";
+"deskSDKUI.common.cc"                        = "Cc:";
+"deskSDKUI.common.bcc"                       = "Bcc:";
+"deskSDKUI.common.to"                        = "To:";
+
+//Ticket List
+"deskSDKUI.ticketlist.nodata"                = "No ticket to show";
+
+//Ticket Detail header
+"deskSDKUI.ticketDetails.status"             = "Status";
+"deskSDKUI.ticketDetails.priority"           = "Priority";
+"deskSDKUI.ticketDetails.duedate"            = "Due Date";
+"deskSDKUI.ticketDetails.nodata"             = "No Conversation to show";
+"deskSDKUI.ticketDetails.Error"              = "Error while Load Conversation";
+
+//ZDConversationCell
+"deskSDKUI.ticketDetails.user"               = "User";
+"deskSDKUI.ticketDetails.public"             = "Public";
+"deskSDKUI.ticketDetails.private"            = "Private";
+
+//ZDTicketDetail Filters
+"deskSDKUI.ticketDetails.filterTitle"        = "View Type";
+"deskSDKUI.ticketDetails.filterMessage"      = "Choose your desired view type";
+
+"deskSDKUI.ticketDetails.showdetails"        = "Show details";
+"deskSDKUI.ticketDetails.hidedetails"        = "Hide details";
+
+
+"deskSDKUI.ticketDetails.conversationFilter" = "%@ Conversation";
+"deskSDKUI.ticketDetails.threadFilter"       = "%@ Threads";
+"deskSDKUI.ticketDetails.commentFilter"      = "%@ Comments";
+
+
+"deskSDKUI.senderInfo.ActionButtonOthers"    = "To: %@ & %d others";
+"deskSDKUI.senderInfo.ActionButtonOther"     = "To: %@ & 1 other";
+"deskSDKUI.senderInfo.ActionButtonToOnly"    = "To: %@";
+"deskSDKUI.senderInfo.emailCopyAction"       = "Copy Email ID";
+"deskSDKUI.senderInfo.emailCopyActionSuccess"      = "Email ID Copied";
