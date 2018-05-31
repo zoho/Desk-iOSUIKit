@@ -74,7 +74,7 @@ internal class ZDTicketDetailsHeader:UIView{
     internal func updateData() -> Void{
         guard let modelData = dataModel else{return}
         self.channelIcon?.image = modelData.getChannelImage()
-        self.titleLabel?.attributedText = modelData.getTicketHeaderTitle()
+        self.titleLabel?.text = modelData.getTitle()
         self.descLabel1?.text = modelData.getDatedescription()
         self.descLabel2?.text = modelData.getSingleName()
         self.descLabel3?.text = modelData.getAccountName()
@@ -121,6 +121,9 @@ internal class ZDTicketDetailsHeader:UIView{
         filerHolderView?.backgroundColor = ZDStyle.ZDTicketDetailCellTheme.tableBGColor
         filterButton?.titleLabel?.font = UIFont.getProximaNovaBold(size: 14)
         filterButton?.setTitleColor(ZDStyle.ZDTicketDetailCellTheme.filterButtonText, for: UIControlState.normal)
+
+        self.titleLabel?.font  = UIFont.getProximaNovaBold(size: 20)
+        self.titleLabel?.textColor  = ZDStyle.primaryColor
         
         _ = [self.descLabel1,self.descLabel2,self.descLabel3].map({$0?.font = UIFont.getProximaNovaRegularFont(size: 16)})
      

@@ -83,11 +83,21 @@ extension ZDTicket{
         let priority = getPriorityText()
         
         let selectedPriorityColor = priorityColor[priority.lowercased()] ?? ZDStyle.secondaryColor
+        
+        #if swift(>=4)
         if !priority.isEmpty{
-            priorityAttributedString.append(NSAttributedString(string: " .  ", attributes: [NSForegroundColorAttributeName : ZDStyle.secondaryColor]))
-            priorityAttributedString.append(NSAttributedString(string: priority, attributes: [NSForegroundColorAttributeName : selectedPriorityColor]))
-            
+        priorityAttributedString.append(NSAttributedString(string: " .  ", attributes: [.foregroundColor : ZDStyle.secondaryColor]))
+        priorityAttributedString.append(NSAttributedString(string: priority, attributes: [.foregroundColor : selectedPriorityColor]))
         }
+        #else
+        if !priority.isEmpty{
+            priorityAttributedString.append(NSAttributedString(string: " .  ", attributes: ["NSColor" : ZDStyle.secondaryColor] as [String:AnyObject]))
+            priorityAttributedString.append(NSAttributedString(string: priority, attributes: ["NSColor" : selectedPriorityColor] as [String:AnyObject]))
+        }
+        #endif
+        
+        
+        
         
         return priorityAttributedString
     }

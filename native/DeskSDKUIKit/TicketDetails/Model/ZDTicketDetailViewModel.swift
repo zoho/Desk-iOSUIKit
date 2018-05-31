@@ -9,14 +9,6 @@
 import UIKit
 import ZohoDeskSDK
 internal extension ZDTicketDetail{
-    func getTicketHeaderTitle() -> NSMutableAttributedString{
-        
-        let titleAttributedString = NSMutableAttributedString()
-        titleAttributedString.append(getEmptyString())
-        titleAttributedString.append(getTitle())
-        
-        return titleAttributedString
-    }
     
     func getDatedescription() -> String{
         return self.createdTime.stringToDate().feedDateToString()
@@ -39,10 +31,6 @@ internal extension ZDTicketDetail{
         return  self.priority == nil  ? "-" : " \(priority.toString())"
     }
     
-    func getStatus() -> NSAttributedString{
-        return NSAttributedString(string: self.priority == nil ? "-" : " \(priority.toString())")
-    }
-    
     func getDueDate() -> String{
         if self.dueDate == nil{
             let (date,_) =  self.dueDate.toString().stringToDate().timeAgoSinceDate(Date(), numericDates: true)
@@ -51,15 +39,8 @@ internal extension ZDTicketDetail{
         return "-"
     }
     
-    func getTitle() -> NSAttributedString{
-        let title = "#\(self.ticketNumber) \(self.subject)"
-        return NSMutableAttributedString(string: title,
-                                         attributes:[NSFontAttributeName: UIFont.getProximaNovaBold(size: 20),
-                                                    NSForegroundColorAttributeName:ZDStyle.primaryColor])
-    }
-    
-    fileprivate func getEmptyString() -> NSAttributedString{
-        return NSAttributedString(string: "  ")
+    func getTitle() -> String{
+        return "#\(self.ticketNumber) \(self.subject)"
     }
     
     func getChannelImage() -> UIImage{
@@ -67,18 +48,6 @@ internal extension ZDTicketDetail{
         let iconKey = (self.channel.toString() + (self.lastThread?.direction ?? "")).lowercased()
         return  UIImage(named: iconKey + ".pdf", in:ZDUtility.getBundle()!, compatibleWith: nil) ?? defaultImage
     }
-    
-    fileprivate func getChannalIconAttributedString() -> NSAttributedString{
-        
-        let icon = ZDConstant.FontConstant.channelFilterIcon[self.channel.toString()] ?? ZDConstant.FontConstant.channelFilterIcon["Web"]
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 10
-        
-        return NSMutableAttributedString(string: icon!,
-                                         attributes:[NSFontAttributeName: UIFont.getIconFont(size: 20),
-                                                     NSForegroundColorAttributeName:ZDStyle.primaryColor,                                                     NSBaselineOffsetAttributeName:-3])
-    }
-    
     
 }
 
