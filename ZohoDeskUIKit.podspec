@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
 spec.name          = 'ZohoDeskUIKit'
-spec.version       = '0.0.2'
+spec.version       = '0.0.3'
 spec.license       = { :type => 'MIT' }
 spec.homepage      = 'https://desk.zoho.com'
 spec.authors       = { 'Rajeshkumar Lingavel' => 'rajeshkumar.l@zohocorp.com' }
@@ -9,7 +9,7 @@ spec.source        = { :git => 'https://github.com/zoho/Desk-iOSUIKit.git', :tag
 
 spec.ios.deployment_target  = '9.0'
 
-spec.source_files   = 'native/**/*.{swift,h,plist,ttf,otf}'
+spec.source_files   = 'native/**/*.{swift,h,plist,ttf,otf,strings,xib}'
 spec.framework      = 'UIKit'
 spec.dependency 'ZohoDeskSDK'
 
