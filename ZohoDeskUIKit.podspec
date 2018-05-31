@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
 spec.name          = 'ZohoDeskUIKit'
-spec.version       = '0.0.3'
+spec.version       = '0.0.4'
 spec.license       = { :type => 'MIT' }
 spec.homepage      = 'https://desk.zoho.com'
 spec.authors       = { 'Rajeshkumar Lingavel' => 'rajeshkumar.l@zohocorp.com' }
