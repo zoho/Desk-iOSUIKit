@@ -80,7 +80,7 @@ internal class ZDConversationCell: UITableViewCell {
     //Data Config Properties
     let attachmentCellHeight:CGFloat = 100
     let attachmentCellwidth:CGFloat = 75
-    let progressBarHeight:CGFloat = 5
+    let progressBarHeight:CGFloat = 2
     
     var isProgressRunning = false
     
