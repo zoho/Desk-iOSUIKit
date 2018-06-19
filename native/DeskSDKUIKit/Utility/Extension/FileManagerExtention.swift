@@ -47,8 +47,6 @@ internal extension FileManager {
             error.localizedDescription.makeLog()
             return nil
         }
-
-        return nil
     }
     
     internal class func isFileExist(subFolder:String,fileName:String) -> URL?{

@@ -343,7 +343,7 @@ extension ZDTicketDetailView{
     internal func getTicketDetails(ticketId:String) -> Void{
         if configuration.ticketId.isEmpty || configuration.orgId.isEmpty {return}
         delegate?.didBeginLoadingData(ticketdetail: self)
-        ZDTicketAPIHandler.getTicketDetails(configuration.orgId, ticketId: configuration.ticketId, include: "contacts,products,assignee") { [weak self] (ticketDetailObject, error, statusCode) in
+        ZDTicketAPIHandler.getTicketDetails(configuration.orgId, ticketId: configuration.ticketId, include: "contacts,products,assignee") { [weak self] (ticketDetailObject,json, error, statusCode) in
             guard let selfObject = self else{return}
             DispatchQueue.main.async {
                 selfObject.ticketDetail =   ticketDetailObject
