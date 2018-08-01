@@ -86,13 +86,22 @@ class ZDAttachmentCollectionCell: UICollectionViewCell {
         }
         
         if  modelObject.data == nil{
-            modelObject.downloadAttachement(onCompliton: { [weak self] (data, error, status) in
+            let request = ZDBaseRequest(path: "", headers: ["orgId":modelObject.orgId])
+            
+            guard let url = URL(string: modelObject.href) else {
+                "Invalid Attachement URL Found -> \(modelObject.href)".makeLog()
+                return
+            }
+            request.baseURL = url
+            
+            ZDAPIExtension.makeAPIRequest(url: url, method: "GET", paramType: "path",header: ["orgId":modelObject.orgId]) { [weak self] (data, error, statusCode) in
                 guard let selfObject = self , let imageData = data else{return}
                 modelObject.data = imageData
                 DispatchQueue.main.async {
                     selfObject.previewData(downloadeddata: imageData)
                 }
-            })
+            }
+            
         }
         else{
             previewData(downloadeddata: modelObject.data!)

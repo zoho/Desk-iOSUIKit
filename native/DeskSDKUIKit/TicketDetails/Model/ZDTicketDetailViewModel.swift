@@ -28,7 +28,10 @@ internal extension ZDTicketDetail{
     }
     
     func getPriority() -> String{
-        return  self.priority == nil  ? "-" : " \(priority.toString())"
+        if let priority = self.priority, !priority.isEmpty {
+            return " \(priority)"
+        }
+        return "-"
     }
     
     func getDueDate() -> String{

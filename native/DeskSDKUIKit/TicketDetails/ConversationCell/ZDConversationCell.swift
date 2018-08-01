@@ -298,15 +298,13 @@ extension ZDConversationCell {
             return
         }
         
-        (modelObject as! ZDThread).getThreadDetail { [weak self] (threadDetail, error, statusCode) in
-            DispatchQueue.main.async {
-                guard let selfObject = self else{return}
-//                selfObject.subtitleLabel?.text = modelObject.getSubTitle()
-//                selfObject.loadHtmlContent(content:selfObject.dataModel?.getContent(isOpen: selfObject.cellConfig.isOpen) ?? "")
-                selfObject.updateData()
-                selfObject.attachmentCollectionView?.reloadData()
-            }
-        }
+        guard let thread = (modelObject as? ZDThread) else{return}
         
+        ZDThreadAPIHandler.getThread(thread.orgId, ticketId: thread.ticketId, threadId: thread.id) { [weak self] (threadDetail, error, statusCode) in
+            guard let selfObject = self else{return}
+             (modelObject as? ZDThread)?.threadDetails = threadDetail
+            selfObject.updateData()
+            selfObject.attachmentCollectionView?.reloadData()
+        }
     }
 }
