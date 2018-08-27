@@ -202,7 +202,10 @@ internal extension ZDTicketListView{
     internal func getDataFromServer(from:Int,configuration:ZDTicketListConfiguration){
         delegate?.didBeginLoadingData(ticketList: self, from: from)
         isLoadingData = (true,from)
-        ZDTicketAPIHandler.getAllTickets(configuration.orgId, from: from, limit: configuration.limit,optionalParams:getPramValues(configuration: configuration)) { [weak self] (tickets, error,statusCode) in
+        var params:[String:AnyObject] = getPramValues(configuration: configuration)
+        params["from"] = from as AnyObject
+        params["limit"] = configuration.limit as AnyObject
+        ZDTicketAPIHandler.getAllTickets(configuration.orgId,optionalParams:params) { [weak self] (tickets, error,statusCode) in
             guard let selfObject = self else{return}
             DispatchQueue.main.async {
                 

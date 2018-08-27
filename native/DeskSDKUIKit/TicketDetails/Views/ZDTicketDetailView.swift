@@ -366,7 +366,8 @@ extension ZDTicketDetailView{
     
     internal func loadConversation(from:Int,ticketId:String){
         if ticketId.isEmpty || configuration.orgId.isEmpty {return}
-        ZDThreadAPIHandler.getAllConversation(configuration.orgId, ticketId: ticketId, from: from, limit: configuration.limit) { [weak self](conversation, error, status) in
+        ZDThreadAPIHandler.getAllConversation(configuration.orgId, ticketId: ticketId, optionalParams: ["from":from,"limit":configuration.limit] as [String : AnyObject]) { [weak self](conversation, error, status) in
+            
             guard let selfObject = self else{return}
             //TODO:- Handle error empty data case.
             let conversationObjects = ZDThreadAPIHandler.conversationParser(orgId: selfObject.configuration.orgId, ticketId: ticketId, conversationJson: conversation)
@@ -391,7 +392,7 @@ extension ZDTicketDetailView{
     
     internal func loadThreads(from:Int,ticketId:String){
         if ticketId.isEmpty || configuration.orgId.isEmpty {return}
-        ZDThreadAPIHandler.getAllThreads(configuration.orgId, from: from, limit: configuration.limit, ticketId: ticketId) { [weak self](threads, error, statusCode) in
+        ZDThreadAPIHandler.getAllThreads(configuration.orgId, ticketId: ticketId, optionalParams: ["from":from,"limit":configuration.limit]) { [weak self](threads, error, statusCode) in
             
             guard let selfObject = self else{return}
             //TODO:- Handle error empty data case.
@@ -409,7 +410,7 @@ extension ZDTicketDetailView{
     internal func loadComments(from:Int,ticketId:String){
         if ticketId.isEmpty || configuration.orgId.isEmpty {return}
 
-        ZDTicketCommentsAPIHandler.getAllTicketComments(configuration.orgId, ticketID: ticketId, from: from, limit: configuration.limit) { [weak self] (ticketComment, error, statusCode) in
+        ZDTicketCommentsAPIHandler.getAllTicketComments(configuration.orgId, ticketID: ticketId,optionalParams:["from":from,"limit":configuration.limit]) { [weak self] (ticketComment, error, statusCode) in
             
             guard let selfObject = self else{return}
             
