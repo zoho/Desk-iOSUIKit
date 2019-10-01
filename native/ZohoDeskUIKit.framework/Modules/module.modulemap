@@ -1,0 +1,11 @@
+framework module ZohoDeskUIKit {
+  umbrella header "ZohoDeskUIKit.h"
+
+  export *
+  module * { export * }
+}
+
+module ZohoDeskUIKit.Swift {
+    header "ZohoDeskUIKit-Swift.h"
+    requires objc
+}

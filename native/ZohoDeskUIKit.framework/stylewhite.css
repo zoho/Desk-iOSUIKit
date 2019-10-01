@@ -1,0 +1,30 @@
+
+@charset "UTF-8";
+a {
+    color: #01AA70; !important;
+}
+
+html {
+    height: 100%;
+    line-height: normal !important;
+    max-width: 100% !important;
+}
+body{
+    min-height: 100%;
+    overflow: auto;
+    max-width: 100% !important;
+    line-height: normal !important;
+    max-width: 100% !important;
+}
+
+td, th,tr,table,span,p,div{
+    max-width: 100% !important;
+    object-fit:cover !important;
+}
+
+img{
+    max-width: 100% !important;
+    object-fit: contain !important;
+}
+
+

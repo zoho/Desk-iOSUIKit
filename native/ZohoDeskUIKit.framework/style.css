@@ -1,0 +1,95 @@
+/**
+ * Copyright (C) 2015 Wasabeef
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@charset "UTF-8";
+
+a {
+    color: #01AA70; !important;
+    -webkit-filter: invert(100%) !important;
+    filter: invert(100%) !important;
+}
+
+html {
+    height: 100%;
+    line-height: normal !important;
+    max-width: 100% !important;
+}
+body{
+    min-height: 100%;
+    overflow: auto;
+    max-width: 100% !important;
+    line-height: normal !important;
+    max-width: 100% !important;
+    -webkit-filter: invert(100%) !important;
+    filter: invert(100%) !important;
+}
+a,td,th,tr,table,span,p,div,tbody{
+/*    margin: 0;*/
+    max-width: 100% !important;
+    object-fit:cover !important;
+    margin-top: 0px !important;
+    margin-right: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: 0px !important;
+}
+
+img{
+    max-width: 100% !important;
+    object-fit: contain !important;
+    -webkit-filter: invert(100%) !important;
+    filter: invert(100%) !important;
+}
+#msgviewoption{
+    -webkit-filter: invert(100%) !important;
+    filter: invert(100%) !important;
+}
+
+/*div {*/
+/*    display: block;*/
+/*    position: static;*/
+/*    white-space: normal !important;*/
+/*    max-width: 100% !important;*/
+/*}*/
+
+/*#editor {*/
+/*    -webkit-user-select: auto !important;*/
+/*    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);*/
+/*    max-width: 100% !important;*/
+/*}*/
+/**/
+/*#editor:focus {*/
+/*    outline: 0px solid transparent;*/
+/*    max-width: 100% !important;*/
+/*}*/
+
+/*.placeholder[placeholder]:after {*/
+/*    content: attr(placeholder);*/
+/*    position: absolute;*/
+/*    top: 0px;*/
+/*    color: #cccccc;*/
+/*    max-width: 100% !important;*/
+/*}*/
+/**/
+/*#editor {*/
+/*    min-height: 100%;*/
+/*    height: 100%;*/
+/*    overflow: auto;*/
+/*    display: block;*/
+/*/*    line-height: normal !important;*/*/
+/*    font-family: 'San Francisco';*/
+/*    font-size: 12pt;*/
+/*    max-width: 100% !important;*/
+/*}*/
